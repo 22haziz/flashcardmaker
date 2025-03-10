@@ -10,6 +10,7 @@
         Console.WriteLine("enter the back of the flashcard");
         string card1Back = Console.ReadLine();
         int card1Score = 0;
+        int counter;
         
         while (card1Score !=2)
         {
@@ -24,21 +25,28 @@
             else
             {
                 Console.WriteLine("incorrect!");
+                counter++
             }
+            Console.WriteLine ("you took " + counter +" times to do card");
         }
         
         //future goals : allow user to input as many cards as they want and when they have done a card correctly twice, it is removed from the deck, 
         //use a for loop for this and maybe condition controlled iteration
 
-
+     // added counter and sample for decklength for loop
+     // future goals: fix decklength and how to create more variables.
+     
         //Console.WriteLine("how many flashcards do you want in your deck?");
         //int deckLength = Convert.ToInt32(Console.ReadLine());
         //for (int i = 1; i <= deckLength-1; i++)
         //{
         //  console.WriteLine ("enter front of flashcard " + i)
+        //(not sure how to add a variable)
         
         //console.WriteLine ("enter back of flashcard " + i)
+        //(not sure to add variable)
         //}
+        
 
     }
 }
