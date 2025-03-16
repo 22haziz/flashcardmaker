@@ -9,7 +9,7 @@
         string card1Front = Console.ReadLine();
         Console.WriteLine("enter the back of the flashcard");
         string card1Back = Console.ReadLine();
-        int card1Score = 0;
+        int card1Score == 0;
         int counter;
         
         while (card1Score !=2)
@@ -25,7 +25,7 @@
             else
             {
                 Console.WriteLine("incorrect!");
-                counter++
+                counter++;
             }
             Console.WriteLine ("you took " + counter +" times to do card");
         }
