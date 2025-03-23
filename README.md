@@ -84,24 +84,26 @@
         }
         
         
-        while (correct == false)
+  while (correct == false)
         {
-        Console.WriteLine("card:" + (random+1));               
-        Console.WriteLine(deckFront[random] +  "   (make sure your answer is spelt correctly)");
-        string userAnswer = Console.ReadLine();
 
-                if (userAnswer == deckBack[random]) ;
+            Console.WriteLine("card:" + (random+1));
+                Console.WriteLine(deckFront[random] +  " (make sure your answer is spelt correctly)");
+            
+                string userAnswer = Console.ReadLine();
+
+                if (userAnswer == deckBack[random]) 
                 {
                     Console.WriteLine("correct!");
                     counter++;
                     correct = true;
 
                 }
-
-                if (userAnswer != deckBack[random])
+                else 
                 {
                     Console.WriteLine("incorrect answer!");
                     counter++;
+                    correct = false;
                 }
         }
 
@@ -121,5 +123,6 @@
 
 
 
-![image](https://github.com/user-attachments/assets/1ed027fb-f09e-43c5-98b5-dc8341fc885e)
+![image](https://github.com/user-attachments/assets/3a65e75c-1d8d-4803-bc0a-727e13ac2b30)
+![image](https://github.com/user-attachments/assets/4da7b19a-b956-4fa1-b70b-ceba61401d7e)
 
