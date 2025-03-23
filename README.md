@@ -83,8 +83,7 @@
             
         }
         
-        
-  while (correct == false)
+         while (correct == false)
         {
 
             Console.WriteLine("card:" + (random+1));
@@ -105,7 +104,10 @@
                     counter++;
                     correct = false;
                 }
-        }
+        }      
+
+     
+        
 
         Console.WriteLine("you took " + counter + " times to do this card");
 
