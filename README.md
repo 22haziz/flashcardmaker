@@ -1,4 +1,4 @@
-# //user enters the front and back of a flashcard
+# //flashcard maker program
         //OLD TEST PROGRAM:
         //need to enter at least 3 (program will ask user how many cards they want to make)
         //a random flashcard will be chosen from the selection the user has inputted
