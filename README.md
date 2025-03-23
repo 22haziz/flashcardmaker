@@ -37,99 +37,86 @@
         // a second card will then be generated, when a card's value becomes 2 this is recorded by the array, random generator choses another card, 
         //if a card generated already has2 value, another card will be generated until all cards have a value of 2
 
-        //creating deck
+         //creating deck + cardValue array
 
-        Console.WriteLine("how many flashcards do you want in your deck? (must be more than 1)");
-        int deckLength = Convert.ToInt32(Console.ReadLine());
-        string[] deckFront = new string[deckLength];
-        string[] deckBack = new string[deckLength];
-        int[] cardValue = new int [deckLength ];
-        for (int a = 0; a <= deckLength-1 ; a++)
-        {
-            cardValue[a] = 0;
-            //makes sure all index in cardValue start at 0
-        }
+    Console.WriteLine("how many flashcards do you want in your deck? (must be more than 1)");
+    int deckLength = Convert.ToInt32(Console.ReadLine());
+    string[] deckFront = new string[deckLength];
+    string[] deckBack = new string[deckLength];
+    int[] cardValue = new int [deckLength ];
+    for (int a = 0; a <= deckLength-1 ; a++)
+    {
+        cardValue[a] = 0;
+        //makes sure all index in cardValue start at 0
+    }
 
 
-        int counter = 0;
-        int cardScore = 0;
+    int counter = 0;
+    
+    Random number = new Random();
+    int random = number.Next(0, deckLength);
+
+    // creating back and front of each card
+    
+    for (int i = 0; i <= deckLength - 1; i++)
+    {
+        Console.WriteLine("enter front of flashcard " + (i + 1));
+        deckFront[i] = Console.ReadLine();
+
+        Console.WriteLine("enter back of flashcard " + (i + 1));
+        deckBack[i] = Console.ReadLine();
+    }
+
+    bool correct = false;
+    //picks random front of card with generator
+
+    
+    //loop 
+    
+    for (int j = 0; j <= deckLength*2; j++) //*2 as you need to do each card twice
+    {
+        random = number.Next(0, deckLength);
         
-
-        //
-        Random number = new Random();
-        int random = number.Next(0, deckLength);
-        for (int i = 0; i <= deckLength - 1; i++)
+        while (cardValue[random] == 2) //makes sure tthe card chosen hasnt been done before
         {
-            Console.WriteLine("enter front of flashcard " + (i + 1));
-            deckFront[i] = Console.ReadLine();
-
-            Console.WriteLine("enter back of flashcard " + (i + 1));
-            deckBack[i] = Console.ReadLine();
-        }
-
-        bool correct = false;
-        //picks random front of card with generator
-
-        for (int j = 0; j < deckLength; j++) //*2 as you need to do each card twice
-        {
-            Console.WriteLine("starting quiz!");
+            random = number.Next(0, deckLength);
             
-            while (cardValue[random] == 2)
-            {
-                random = number.Next(0, deckLength);
-                Console.WriteLine("you will do card " + random);
-            }
-            while (cardValue[random] != 2)
-            {
+        }
+        
+        
+        while (correct == false)
+        {
+        Console.WriteLine("card:" + (random+1));               
+        Console.WriteLine(deckFront[random] +  "   (make sure your answer is spelt correctly)");
+        string userAnswer = Console.ReadLine();
 
-
-
-
-
-
-
-
-
-                while (correct = false)
+                if (userAnswer == deckBack[random]) ;
                 {
+                    Console.WriteLine("correct!");
+                    counter++;
+                    correct = true;
 
-
-                    Console.WriteLine(deckFront[random] +
-                                      " make sure your answer is spelt correctly)");
-
-                    string userAnswer = Console.ReadLine();
-
-                    if (userAnswer == deckBack[random]) ;
-                    {
-                        Console.WriteLine("correct!");
-
-
-
-                    }
-                    if (userAnswer != deckBack[random])
-                    {
-                        Console.WriteLine("incorrect answer!");
-                        counter++;
-                    }
-
-                    Console.WriteLine("you took " + counter + " times to do card");
-
-
-                    cardValue[random]++;
                 }
 
-                correct = false;
-            }
-            //fix cardValue for next time
+                if (userAnswer != deckBack[random])
+                {
+                    Console.WriteLine("incorrect answer!");
+                    counter++;
+                }
         }
 
-    }
-    }
-        }
+        Console.WriteLine("you took " + counter + " times to do this card");
 
+        cardValue[random]++;
+        Console.WriteLine("you have done this card correct" + cardValue[random] + " times");
+
+        correct = false;
+        counter = 0;//reassigns variables to 0 and false for next card
     }
+        
+    }
+
 }
-
     
 
 
